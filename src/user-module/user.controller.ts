@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   Post,
@@ -26,7 +27,7 @@ export class UserController {
     return this.userService.addUser(user);
   }
 
-  @Post('/:email')
+  @Delete('/:email')
   @UsePipes(new ValidationPipe())
   deleteUser(@Param() params: UserParamsDto): User[] {
     return this.userService.deleteUser(params.email);
